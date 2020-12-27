@@ -1,0 +1,48 @@
+body{
+    /* position: relatsive; */
+    /* width: 100vw;
+    height: 100vh; */
+    background: #FFE1DE;
+    /* background: red; */
+    
+}
+/* form{
+    display: flex;
+    justify-content: space-between;
+} */
+/* form{
+    display: block;
+    justify-content: center;
+    align-items: center;
+} */
+label{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+
+    color: #4F596A;
+}
+
+input {
+    background: #F2F1F1;
+    border: 3px solid #FF968B;
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 15rem;
+    height: 1.5rem;
+}
+
+button {
+    position: absolute;
+    width: 15rem;
+    height:1.9rem;
+
+    background: #FF968B;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    border: none;
+}

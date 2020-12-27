@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função 1° grau - Eduarda K.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- for calculate related function -->
+    <form action="">
+        <label for="">Digite o valor de X1:</label>    
+        <input type="number" id="x1">
+        <br>
+        <br>
+        <label for="">Digite o valor de Y1:</label>    
+        <input type="number" id="y1">
+        <br>
+        <br>
+        <label for="">Digite o valor de X2:</label>    
+        <input type="number" id="x2">
+        <br>
+        <br>
+        <label for="">Digite o valor de Y2:</label>    
+        <input type="number" id="y2">
+        <br>
+        <br>
+        <button onclick="calcularFuncao()" class="b1" type="button">Calcular</button><br><br>
+    </form>
+    
+    <h1 id="funcao"></h1>
+    <br>
+    
+    <!-- for calculate point with x -->
+    <form action="">
+        <label for="">Digite um valor de Y para calcular o X em um ponto válido:</label>
+        <input type="number" id="yi">
+        <button onclick="calculaX()" type="button">Calcular</button><br>
+    </form>
+
+    <h1 id="cordenadaX"></h1>
+    
+    <!-- for calculate point with y -->
+    <form action="">
+        <label for="">Digite um valor de X para calcular o Y em um ponto válido:</label>
+        <input type="number" id="xi">
+        <button onclick="calculaY()" type="button">Calcular</button><br>
+    </form>
+    
+    <h1 id="cordenadaY"></h1>
+
+    <script>
+        var a;
+        var b;
+        var x;
+        var y; 
+
+        function calcularFuncao() {
+            var x1 = document.getElementById("x1").value;
+            var y1 = document.getElementById("y1").value;
+            var x2 = document.getElementById("x2").value;
+            var y2 = document.getElementById("y2").value;
+
+            if (x1 == "" || x2 == "" || y1 == "" || y2 == "") {
+                alert("Os campos não foram preenchidos");
+                return;
+            }
+
+            x1 = parseInt(x1);
+            x2 = parseInt(x2);
+            y1 = parseInt(y1);
+            y2 = parseInt(y2);
+
+            if (x1 == x2 && y1 != y2) {
+                alert("Não é uma função");
+                return;
+            }else if(x1 == x2 && y1 == y2){
+                alert("Pontos iguais");
+                return;
+            }
+
+            b = (y1 * x2 - y2 * x1) / (x2 - x1);
+            a = (y1 - b) / x1;
+
+
+            var funcao = `f(x) = ${a}X + (${b})`;
+            document.getElementById("funcao").innerHTML = funcao;
+        }
+
+        function calculaX() {
+            if (a == null || b == null) {
+                alert("Você ainda não definiu uma função...");
+                return;
+            }
+            var yi = document.getElementById("yi").value;
+            if(yi == ""){
+                alert("Y não informado..."); 
+                return;
+            }
+            yi = parseInt(yi);
+            x = (yi - b) / a;
+            var cordenadaX = `(${x}, ${yi})`;
+            document.getElementById("cordenadaX").innerHTML=cordenadaX;
+    
+        }
+
+        function calculaY() {
+            if (a == null || b == null) {
+                alert("Você ainda não definiu uma função...");
+                return;
+            }
+    
+            var xi = document.getElementById("xi").value;
+            if(xi == ""){
+                alert("X não informado"); 
+                return;
+            }
+            xi = parseInt(xi);
+            y = a*xi + b;
+            var cordenadaY = `(${xi}, ${y})`;
+            document.getElementById("cordenadaY").innerHTML=cordenadaY;
+        }
+    </script>
+</body>
+</html>
